@@ -56,8 +56,8 @@
                     <input id="first-class-input" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn d-flex justify-content-start align-items-center ">
-                    <button id="first-class-plus" class="btn btn-primary mx-1">+</button>
-                    <button id="first-class-minus" class="btn btn-primary">-</button>
+                    <button onclick="ticketCount('first-class',true) " class="btn btn-primary mx-1">+</button>
+                    <button onclick="ticketCount('first-class',false)" class="btn btn-primary">-</button>
                 </div>
             </div>
             
@@ -67,8 +67,8 @@
                     <input id="economy-class-input" class="inp-style inp-width" type="number" value="0" name="">
                 </div>
                 <div class="plus-minus-btn d-flex justify-content-start align-items-center">
-                    <button id="economy-class-plus" class="btn btn-primary mx-1">+</button>
-                    <button id="economy-class-minus" class="btn btn-primary">-</button>
+                    <button onclick="ticketCount('economy-class',true)" class="btn btn-primary mx-1">+</button>
+                    <button onclick="ticketCount('economy-class',false)" class="btn btn-primary">-</button>
                 </div>
             </div>
             <div class="calculations">
@@ -108,54 +108,59 @@
         </div>
     </section>
 
-    <section id="ticket-booking-information" class="container my-5">
-      <div class=" ">
-        <table class="table table-striped text-align-left py-5">
+    <section id="ticket-booking-information" class="container my-5 ">
+      <div class=" purchase-ticket-information">
+          <h2 class="text-center text-success text-uppercase">Welcome to Bangladesh Air</h2>
+          <h3 class="text-center text-success text-uppercase">Your Ticket Information</h3>
+        <table class="table table-striped  py-5 text-left">
             <tr>
-                <td><p class="">Flying From:</p></td>
+                <td>Flying From:</td>
                 <td> <span id="flying-from-value"></span></td> 
             </tr>
             <tr>
-                <td><p class="">Flying To:</p></td>
+                <td>Flying To:</td>
                 <td><span id="flying-to-value"></span></td>
             </tr>
             <tr>
-                <td> <p class="">Departure Date: </p></td>
+                <td> Departure Date:</td>
                 <td> <span id="departure-value"></span></td>
             </tr>
             <tr>                
-                <td><p class="">Return Date: </p></td>
+                <td>Return Date: </td>
                 <td><span id="return-value"></span></td>
             </tr>
             <tr>
-                <td><p class="">Total First Class Ticket: </p></td>
+                <td>No. of First Class Ticket: </td>
                 <td><span id="first-class-ticket"></span></td>               
             </tr>
             <tr>
-                <td><p class="">First Class Ticket Price:</p></td>
+                <td>First Class Ticket Price(x150):</td>
                 <td><span id="first-class-ticket-price"></span></td>               
             </tr>
             <tr>
-                <td><p class="">Total Economy Class Ticket:</p></td>
+                <td>No. of Economy Class Ticket:</td>
                 <td><span id="economy-class-ticket"></span></td>
             </tr>
             <tr>
-                <td><p class="">Economy Class Ticket Price:</p></td>
+                <td>Economy Class Ticket Price (x100):</td>
                 <td><span id="economy-class-ticket-price"></span></td>
             </tr>
             <tr>
-                <td><p class="">Subtotal: </p></td>
+                <td>Subtotal:</td>
                 <td><span id="sub-total-amount"></span></td>
             </tr>
             <tr>
-                <td> <p class="">Vat (10%): </p></td>
+                <td> Vat (10%)</td>
                 <td><span id="vat-amount"></span></td>
             </tr>
             <tr>
-                <td><p class="">Total: </p></td>
+                <td>Total:</td>
                 <td> <span id="total-amount"></span></td>
             </tr>
         </table>
+        <div class="text-center">
+            <button class="btn btn-success btn-lg btn-block" onclick="window.print()">Download Your Ticket</button>
+        </div>
       </div>
     </section>
 

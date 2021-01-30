@@ -120,4 +120,11 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
-#ticket-booking-information{display: none; background-color: white;}
+#ticket-booking-information{display: none; background-color: white; width: 50%;}
+.purchase-ticket-information table tr td{
+    width: 50%;
+}
+.purchase-ticket-information {
+    padding: 10px;
+    margin: auto;
+}

@@ -1,126 +1,22 @@
-document.getElementById('first-class-plus').addEventListener('click', function () {
-    const firstClassInput = document.getElementById('first-class-input').value;
-    const firstClassCount = parseInt(firstClassInput);
-    let firstClassNewCount = firstClassCount + 1;
-    console.log(firstClassNewCount);
 
-    document.getElementById('first-class-input').value = firstClassNewCount;
+//count increase or decrease ticket value
+function ticketCount(id, isIncrease) {
+    const ticketCount = parseInputValue(id + '-input');
+    let ticketNewCount = ticketCount;
+    console.log(ticketNewCount);
+    console.log(id);
 
-    // const subTotalValue = document.getElementById('sub-total').innerText;
-    // const subTotalAmount = parseFloat(subTotalValue);
+    if (isIncrease == true) {
+        ticketNewCount = ticketCount + 1;
+    }
 
-    // const vatTotalValue = document.getElementById('vat-total').innerText;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
+    if (isIncrease == false && ticketCount > 0) {
+        ticketNewCount = ticketCount - 1;
+    }
 
-    // const totalValue = document.getElementById('total').innerText;
-    // const totalAmount = parseFloat(totalValue);
-
-    let total = firstClassNewCount * 150;
-    let vat = total * .1;
-    let grandTotal = total + vat;
+    document.getElementById(id + '-input').value = ticketNewCount;
     calculateTotal();
-    // const subTotalValue = document.getElementById('sub-total').innerText = total;
-    // const subTotalAmount = parseFloat(subTotalValue);
-
-    // const vatTotalValue = document.getElementById('vat-total').innerText = vat;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
-
-    // const totalValue = document.getElementById('total').innerText = grandTotal;
-    // const totalAmount = parseFloat(totalValue);
-
-    console.log(total);
-    console.log(vat);
-    console.log(grandTotal);
-
-
-})
-
-document.getElementById('first-class-minus').addEventListener('click', function () {
-    const firstClassInput = document.getElementById('first-class-input').value;
-    const firstClassCount = parseInt(firstClassInput);
-
-    let firstClassNewCount = firstClassCount - 1;
-
-    console.log(firstClassNewCount);
-
-    document.getElementById('first-class-input').value = firstClassNewCount;
-
-    let total = firstClassNewCount * 150;
-    let vat = total * .1;
-    let grandTotal = total + vat;
-    calculateTotal();
-    // const subTotalValue = document.getElementById('sub-total').innerText = total;
-    // const subTotalAmount = parseFloat(subTotalValue);
-
-    // const vatTotalValue = document.getElementById('vat-total').innerText = vat;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
-
-    // const totalValue = document.getElementById('total').innerText = grandTotal;
-    // const totalAmount = parseFloat(totalValue);
-})
-//economy class
-
-document.getElementById('economy-class-plus').addEventListener('click', function () {
-    const economyClassInput = document.getElementById('economy-class-input').value;
-    const economyClassCount = parseInt(economyClassInput);
-    let economyClassNewCount = economyClassCount + 1;
-    console.log(economyClassNewCount);
-
-    document.getElementById('economy-class-input').value = economyClassNewCount;
-
-    // const subTotalValue = document.getElementById('sub-total').innerText;
-    // const subTotalAmount = parseFloat(subTotalValue);
-
-    // const vatTotalValue = document.getElementById('vat-total').innerText;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
-
-    // const totalValue = document.getElementById('total').innerText;
-    // const totalAmount = parseFloat(totalValue);
-
-    let total = economyClassNewCount * 100;
-    let vat = total * .1;
-    let grandTotal = total + vat;
-    calculateTotal();
-    // const subTotalValue = document.getElementById('sub-total').innerText = total;
-    // const subTotalAmount = parseFloat(subTotalValue);
-
-    // const vatTotalValue = document.getElementById('vat-total').innerText = vat;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
-
-    // const totalValue = document.getElementById('total').innerText = grandTotal;
-    // const totalAmount = parseFloat(totalValue);
-
-    console.log(total);
-    console.log(vat);
-    console.log(grandTotal);
-
-
-})
-
-document.getElementById('economy-class-minus').addEventListener('click', function () {
-    const economyClassInput = document.getElementById('economy-class-input').value;
-    const economyClassCount = parseInt(economyClassInput);
-
-    let economyClassNewCount = economyClassCount - 1;
-
-    console.log(economyClassNewCount);
-
-    document.getElementById('economy-class-input').value = economyClassNewCount;
-    calculateTotal();
-
-    // let total1 = economyClassNewCount * 100;
-    // let vat1 = total1 * .1;
-    // let grandTotal1 = total1 + vat1;
-
-    // const subTotalValue = document.getElementById('sub-total').innerText = total1;
-    // const subTotalAmount = parseFloat(subTotalValue);
-
-    // const vatTotalValue = document.getElementById('vat-total').innerText = vat1;
-    // const vatTotalAmount = parseFloat(vatTotalValue);
-
-    // const totalValue = document.getElementById('total').innerText = grandTotal1;
-    // const totalAmount = parseFloat(totalValue);
-})
+}
 
 
 document.getElementById('book-now').addEventListener('click', function () {
@@ -129,59 +25,73 @@ document.getElementById('book-now').addEventListener('click', function () {
     const bookInfo = document.getElementById('ticket-booking-information');
     bookInfo.style.display = 'block';
 
-    const flyingFromInput = document.getElementById('flying-from').value;
-    const flyingToInput = document.getElementById('flying-to').value;
-    const departureInput = document.getElementById('departure').value;
-    const returnInput = document.getElementById('return').value;
-    const firstClassInput = document.getElementById('first-class-input').value;
-    const firstClassInputCount = parseInt(firstClassInput);
-    const economyClassInput = document.getElementById('economy-class-input').value;
-    const economyClassInputCount = parseInt(economyClassInput);
+ 
+    const flyingFromInput = getInputValue('flying-from');
+    const flyingToInput = getInputValue('flying-to');
+    const departureInput = getInputValue('departure');
+    const returnInput = getInputValue('return');
+    const firstClassInputCount = parseInputValue('first-class-input');
+    const economyClassInputCount = parseInputValue('economy-class-input');
 
-    let firstClassTicketPrice = firstClassInputCount * 150;
-    let economyClassTicketPrice = economyClassInputCount * 100;
+    // let firstClassTicketPrice = firstClassInputCount * 150;
+    // let economyClassTicketPrice = economyClassInputCount * 100;
+    // let total = firstClassTicketPrice + economyClassTicketPrice;
+    // let vat = total * .1;
+    // let grandTotal = total + vat;
+
+    setPurchaseTicketValue('flying-from-value',flyingFromInput);
+    setPurchaseTicketValue('flying-to-value',flyingToInput);
+    setPurchaseTicketValue('departure-value',departureInput);
+    setPurchaseTicketValue('return-value',returnInput);
+    // setPurchaseTicketValue('first-class-ticket',firstClassInputCount);
+    // setPurchaseTicketValue('first-class-ticket-price',firstClassTicketPrice);
+    // setPurchaseTicketValue('economy-class-ticket',economyClassInputCount);
+    // setPurchaseTicketValue('economy-class-ticket-price',economyClassTicketPrice);
+    // setPurchaseTicketValue('sub-total-amount',total);
+    // setPurchaseTicketValue('vat-amount',vat);
+    // setPurchaseTicketValue('total-amount',grandTotal);
+    calculateTotal();
+   
+})
+
+//calculation for ticket and ticket price 
+function calculateTotal() {
+    const firstClassTicketCount = parseInputValue('first-class-input');
+    const economyClassTicketCount = parseInputValue('economy-class-input');
+
+    let firstClassTicketPrice = firstClassTicketCount * 150;
+    let economyClassTicketPrice = economyClassTicketCount * 100;
     let total = firstClassTicketPrice + economyClassTicketPrice;
     let vat = total * .1;
     let grandTotal = total + vat;
-   
-
-
-    document.getElementById('flying-from-value').innerHTML = flyingFromInput;
-    document.getElementById('flying-to-value').innerHTML = flyingToInput;
-    document.getElementById('departure-value').innerHTML = departureInput;
-    document.getElementById('return-value').innerHTML = returnInput;
-    document.getElementById('first-class-ticket').innerHTML = firstClassInput;
-    document.getElementById('first-class-ticket-price').innerHTML = firstClassTicketPrice;
-    document.getElementById('economy-class-ticket').innerHTML = economyClassInput;
-    document.getElementById('economy-class-ticket-price').innerHTML = economyClassTicketPrice;
-    document.getElementById('sub-total-amount').innerHTML = total;
-    document.getElementById('vat-amount').innerHTML = vat;
-    document.getElementById('total-amount').innerHTML = grandTotal;
-    
-
-
-
-})
-
-function calculateTotal() {
-    const firstClassTicketInput = document.getElementById('first-class-input').value;
-    const firstClassTicketCount = parseInt(firstClassTicketInput);
-    const economyClassTicketInput = document.getElementById('economy-class-input').value;
-    const economyClassTicketCount = parseInt(economyClassTicketInput);
-
-    let total = firstClassTicketCount * 150 + economyClassTicketCount * 100;
-    let vat = total * .1;
-    let grandTotal = total + vat;
-
 
     const subTotalValue = document.getElementById('sub-total').innerText = total;
-    const subTotalAmount = parseFloat(subTotalValue);
-
     const vatTotalValue = document.getElementById('vat-total').innerText = vat;
-    const vatTotalAmount = parseFloat(vatTotalValue);
-
     const totalValue = document.getElementById('total').innerText = grandTotal;
-    const totalAmount = parseFloat(totalValue);
 
-    
+    setPurchaseTicketValue('first-class-ticket',firstClassTicketCount);
+    setPurchaseTicketValue('first-class-ticket-price','$'+firstClassTicketPrice);
+    setPurchaseTicketValue('economy-class-ticket',economyClassTicketCount);
+    setPurchaseTicketValue('economy-class-ticket-price','$'+economyClassTicketPrice);
+    setPurchaseTicketValue('sub-total-amount','$'+total);
+    setPurchaseTicketValue('vat-amount','$'+vat);
+    setPurchaseTicketValue('total-amount','$'+grandTotal);
+}
+
+//input ticket convert string to integer
+function parseInputValue(id) {
+    const inputValue = document.getElementById(id).value;
+    const inputValueCount = parseInt(inputValue);
+    return inputValueCount;
+}
+
+//get input value and return
+function getInputValue(id) {
+    const inputValue = document.getElementById(id).value;
+    return inputValue;
+}
+
+//set purchase ticket information
+function setPurchaseTicketValue(id,inputValue) {
+    document.getElementById(id).innerHTML = inputValue;
 }
